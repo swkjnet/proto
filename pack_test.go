@@ -32,7 +32,7 @@ type test struct {
 
 //[0, 0, 0, 99, 0, 1, 0, 0, 3, 231, 119, 111, 114, 108, 100, 0, 0, 39, 102, 116, 101, 115, 116, 32, 111, 118, 101, 114, 104, 101, 108, 108, 111, 0, 3, 97, 66, 67, 68, 69]
 func Test_Pack(t *testing.T) {
-	var data float32 = 6553.456
+	var data []int
 	/*var data test
 	data.T.J = "测试中文字符串"
 	data.B = 99
@@ -58,7 +58,7 @@ func Test_Pack(t *testing.T) {
 		log.Println("打包后字节数据1 :", bys)
 	}
 
-	var unpakdata float32
+	var unpakdata []int
 	UnPack(bys, &unpakdata)
 	log.Println("解包后1 :", unpakdata)
 }

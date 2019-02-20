@@ -43,6 +43,8 @@ func packerOfType(typ reflect2.Type) ValPack {
 		return &uint32Packer{}
 	case reflect.Uint64:
 		return &uint64Packer{}
+	case reflect.Int:
+		return &intPacker{}
 	case reflect.Float32:
 		return &float32Packer{}
 	case reflect.Float64:
@@ -80,6 +82,8 @@ func unpackOfType(typ reflect2.Type) ValUnPack {
 		return &uint32Packer{}
 	case reflect.Uint64:
 		return &uint64Packer{}
+	case reflect.Int:
+		return &intPacker{}
 	case reflect.Float32:
 		return &float32Packer{}
 	case reflect.Float64:

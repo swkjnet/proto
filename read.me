@@ -1,0 +1,26 @@
+1、msgToTypescript程序支持将golang的协议文件，转成typescript的协议文件
+golang支持的基本类型:string、uint8、uint16、uint32、int8、int16、int32、slice、struct
+typescript基本类型：string、number、array、class
+golang协议文件的格式示例：
+
+//结构体注释
+type TestC struct {
+	A string //字段注释
+	B uint32 //字段注释
+}
+
+config.json配置说明：
+{
+	"tspacket":"laya.Message",//ts包名，默认laya.Message
+	"protopath": "proto.go"   //golang协议路径名，默认proto.go
+}
+
+
+2、本包是golang序列化方法
+golang 
+序列化：Pack(Interface{})([]byte, error)//示例bys, err1 := Pack(&data)
+反序列化：UnPack(data []byte, data Interface{}) error//示例err := UnPack(bys, &unpakdata)
+
+typescript 
+序列化：Object.Pack():Byte//消息对象执行Pack方法
+反序列化：Object.UnPack(buf:Byte)//消息执行UnPack方法转为对象

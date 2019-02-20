@@ -31,6 +31,7 @@ type slicePacker struct {
 
 func (this *slicePacker) Pack(ptr unsafe.Pointer, stream *Packet) {
 	if this.sliceType.UnsafeIsNil(ptr) {
+		stream.WriteInt(uint16(0))
 		return
 	}
 
@@ -39,7 +40,6 @@ func (this *slicePacker) Pack(ptr unsafe.Pointer, stream *Packet) {
 	if length == 0 {
 		return
 	}
-
 	this.elemPacker.Pack(this.sliceType.UnsafeGetIndex(ptr, 0), stream)
 	for i := uint16(1); i < length; i++ {
 		elemPtr := this.sliceType.UnsafeGetIndex(ptr, int(i))
